@@ -1,0 +1,28 @@
+[package]
+name = "summary-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.summary]
+path = ".."
+
+[[bin]]
+name = "summarize_ratio"
+path = "fuzz_targets/summarize_ratio.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "summarize_sentences"
+path = "fuzz_targets/summarize_sentences.rs"
+test = false
+doc = false
+bench = false
